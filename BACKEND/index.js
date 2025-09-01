@@ -1,21 +1,17 @@
 const express = require('express');
-const fs = require('fs')
+const cors = require('cors');
+const connectMongoDb = require('./config/db');
+const router = require('./routes/productRouter');
+
+
+
 const app = express();
-const {connectMongoDb} = require('./connection');
-const userRouter = require('./routes/user');
+app.use(cors());
+connectMongoDb();
 
-// <-------MiddleWare Plugins------------->
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-const PORT = 8000;
-
-// mongoDB connection
-connectMongoDb('mongodb://localhost:27017');
+app.use('/',router);
 
 
-// routes <-----RESTAPI----->
-app.use('/api/users',userRouter);
 
 
-app.listen(PORT, () => { console.log("Server Started at port : 8000") });
+app.listen(3000,()=> console.log('server started at http://localhost:3000 '));

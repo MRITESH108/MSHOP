@@ -1,15 +1,24 @@
-import './App.css'
-import CategoriesCard from './components/CategoriesCard'
-import Navbarhome from './components/Navbarhome'
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
+import './app.css'
+import Navbar from './components/Navbar'
+import Product from './components/Product'
+import Category from "./components/Category";
 
-function App() {
- 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <div className="app-box">
+      <Navbar/>
+      <Product/>
+    </div>,
+  },
+]);
 
+
+const App = () => {
   return (
-    <>
-     <Navbarhome/>
-     <CategoriesCard/>
-    </>
+    <RouterProvider router={router} />
   )
 }
 
