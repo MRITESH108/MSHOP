@@ -1,43 +1,17 @@
-import { useEffect, useState } from "react"
-import axios from 'axios';
+import Categorycard from "../card/Categorycard";
+import phoneimg from '../assets/phone.webp'
+const category = ["Minutes","Mobiles & Tablets","Fashion","Electronics","Home & Furniture", "TVs & Appliances", "Flight Booking", "Beauty, Food & Personal Care", "Grocery"];
 
 const Product = () => {
-    const [produc, setProduc] = useState([]);
-    const [page, setPage] = useState(1);
-
-    const fetchData = async()=>{
-       const res = await axios.get(`http://localhost:3000/?page=${page}`);
-       setProduc(res.data.paginatedData);
-    };
-
-
-    useEffect(()=>{
-        fetchData(page);
-
-    },[page]);
-
-    const handleprev = ()=>{
-        setPage(prev=>Math.max(prev-1,1));
-        
-    };
-    const handlenext = ()=>{
-        setPage(next=>Math.min(next+1,3));
-        console.log('clicked')
-    };
-
+   
   return (
     <div>
-        <div>
-            <button onClick={handleprev}>prev</button>
-            <button onClick={handlenext}>next</button>
-        </div>
-      <div>
-        {produc.map((prod)=>(
-            <div key={prod._id} style={{margin:'5px',border: '2px solid red',display:'flex', justifyContent: 'center', alignItems:'center', flexDirection:'column'}}>
-                <h3>{prod.id}.{prod.title}</h3>
-                <h5>{prod.category}</h5>
-                <p>{prod.description}</p>
-            </div>
+      {/* category */}
+      <div style={{backgroundColor:'rgb(255, 254, 253)',display:'flex',gap:'20px',alignItems:'center', justifyContent:'center', height:'126px', marginRight:'16px', marginLeft:'16px'}}>
+        {category.map((categ)=>(
+          <div style={{}}>
+            <Categorycard title={categ} image={phoneimg}/>
+          </div>
         ))}
       </div>
     </div>

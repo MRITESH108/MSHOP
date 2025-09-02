@@ -3,12 +3,12 @@ import { RouterProvider } from "react-router/dom";
 import './app.css'
 import Navbar from './components/Navbar'
 import Product from './components/Product'
-import Category from "./components/Category";
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div className="app-box">
+    element: <div className="app-homebox">
       <Navbar/>
       <Product/>
     </div>,

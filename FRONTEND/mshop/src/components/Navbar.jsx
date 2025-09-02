@@ -20,17 +20,17 @@ const Navbar = () => {
                 <div className='navlink-box'>
                     <NavLink className='navlink'>
                             <img className='navlink-img' src={profile} alt="" />
-                            Login
+                            <span className='navlink-text'>Login</span>
                     </NavLink>
 
                     <NavLink className='navlink'>
                         <img className='navlink-img' src={header_cart} alt="" />
-                        Cart
+                        <span className='navlink-text'>Cart</span>
                     </NavLink>
 
                     <NavLink className='navlink'>
                         <img className='navlink-img' src={Storeicon} alt="" />
-                        Become a seller
+                        <span className='navlink-text'>Become a seller</span>
                     </NavLink>
                 </div>
 
