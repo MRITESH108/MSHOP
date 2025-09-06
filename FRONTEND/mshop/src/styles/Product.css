@@ -1,0 +1,21 @@
+
+.product-categorybox {
+    background-color: rgb(255, 254, 253);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    height: 126px;
+    margin-right: 16px;
+    margin-left: 16px;
+    
+}
+
+.product-adbox {
+    display: flex;
+    overflow: hidden;
+    padding-top: 17px;
+    align-items: center;
+    margin-right: 16px;
+    margin-left: 16px;
+}

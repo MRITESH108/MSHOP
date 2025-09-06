@@ -1,12 +1,20 @@
 import React from 'react'
 import '../styles/Categorycard.css'
-import photo from '../assets/ad4.webp'
+import phoneimg from '../assets/phone.webp'
 
-const Categorycard = ({title,image}) => {
+
+const category = ["Minutes", "Mobiles & Tablets", "Fashion", "Electronics", "Home & Furniture", "TVs & Appliances", "Flight Booking", "Beauty, Food & Personal Care", "Grocery"];
+
+const Categorycard = () => {
   return (
-    <div style={{backgroundColor:'rgb(255, 254, 253)',display:'flex', flexDirection:'column',gap:'10px', alignItems:'center', }}>
-      <img style={{width:'70px', height:'60px',backgroundColor:'transparent'}} src={image} alt="imhg" />
-      <span style={{backgroundColor:'transparent'}}>{title}</span>
+    <div className='categorycardbox' >
+      {category.map((categ, index) => (
+        <div key={index} className='categorycardbox1'>
+          <img className='categorycard-img' src={phoneimg} />
+          <span className='categorycard-title'>{categ}</span>
+        </div>
+
+      ))}
     </div>
   )
 }

@@ -1,0 +1,24 @@
+.categorycardbox{
+    background-color: rgb(255, 254, 253);
+    display: flex;
+    gap: 21px;
+    align-items: center;
+
+}
+.categorycardbox1{
+    background-color: rgb(255, 254, 253);
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.categorycard-img{
+    width: 70px;
+    height: 60px;
+    background-color: transparent;
+    
+}
+.categorycard-title{
+    background-color: transparent;
+}
