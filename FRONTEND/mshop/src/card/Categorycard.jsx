@@ -5,6 +5,7 @@ import phoneimg from '../assets/phone.webp'
 
 const category = ["Minutes", "Mobiles & Tablets", "Fashion", "Electronics", "Home & Furniture", "TVs & Appliances", "Flight Booking", "Beauty, Food & Personal Care", "Grocery"];
 
+
 const Categorycard = () => {
   return (
     <div className='categorycardbox' >

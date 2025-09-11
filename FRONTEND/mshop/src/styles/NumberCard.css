@@ -1,0 +1,17 @@
+.numbercard-box{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    
+}
+
+.numbercard-img{
+    height: 152px;
+
+}
+
+.numbercard-text{
+    background-color: transparent;
+}

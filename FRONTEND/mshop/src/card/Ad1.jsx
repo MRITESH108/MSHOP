@@ -18,7 +18,7 @@ const Ad1 = () => {
       );
     },3000);
     return ()=> clearTimeout(interval);
-  },[currIndex])
+  },[currIndex]);
 
   return (
     <div className='slider'>

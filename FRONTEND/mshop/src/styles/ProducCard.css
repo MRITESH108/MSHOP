@@ -1,0 +1,19 @@
+.produccard-box{
+    background-color: rgb(255, 254, 253);
+    flex: auto;
+}
+
+.produccard-title{
+    background-color: transparent;
+    padding: 16px;
+    font-size: 22px;
+    font-family: inter_semi_bold, fallback-inter_semi_bold, Arial, sans-serif;
+
+}
+
+.produccard-item{
+    display: flex;
+    padding: 12px 24px;
+    background-color: transparent;
+    justify-content: space-around;
+}
