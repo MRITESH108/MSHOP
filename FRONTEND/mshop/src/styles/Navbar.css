@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     font-size: larger;
-
+    overflow: visible;
 }
 
 .navbar-container {
@@ -16,8 +16,6 @@
     justify-content: center;
     align-items: center;
     background-color: rgb(255, 254, 253);
-
-
 }
 
 .navbar-searchimg {
@@ -25,8 +23,6 @@
     align-items: center;
     background-color: transparent;
     gap: 50px;
-
-
 }
 
 .nav-searchbox {
@@ -35,7 +31,6 @@
     border: none;
     border-radius: 10px;
     height: 40px;
-
 }
 
 .nav-search {
@@ -44,7 +39,7 @@
     align-items: center;
     background-color: rgb(208, 250, 237);
     border-radius: 10px;
-    height: 40px;
+    height: 100%;
 }
 
 .navlink-box {
@@ -52,24 +47,65 @@
     display: flex;
     gap: 20px;
     align-items: center;
-
-
 }
 
 .navlink {
+    
     display: flex;
     align-items: center;
     gap: 8px;
     margin-left: 40px;
     text-decoration: none;
     background-color: transparent;
-
-
 }
 
 .navlink-img {
     background-color: transparent;
 }
 .navlink-text{
+    background-color: transparent;
+}
+
+.login-wrapper{
+    background-color: transparent;
+}
+
+.dropdown-login{
+    background-color: rgb(247, 245, 245);
+    box-shadow: 0px 0px 0px 3px rgba(247, 245, 245, 0.588);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 69%;
+    width: 200px;
+    padding: 10px;
+    z-index: 1100;
+}
+
+.logincontent1{
+    justify-content: space-between;
+    display: flex;
+    background-color: transparent; 
+    border-bottom: 1px solid black; 
+    padding-bottom: 2px;
+}
+
+span{
+    background-color: transparent;
+}
+
+.logincontent2{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-wrapper:hover .dropdown-login{
+    display: flex;
+}
+
+.nav-signup{
+    text-decoration: none;
     background-color: transparent;
 }

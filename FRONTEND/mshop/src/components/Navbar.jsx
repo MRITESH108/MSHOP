@@ -18,10 +18,24 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className='navlink-box'>
-                    <NavLink className='navlink'>
+                    {/* LOGIN - SECTION */}
+                    <div className='login-wrapper'>
+                        <NavLink to='/login' className='navlink navlink-login'>
                             <img className='navlink-img' src={profile} alt="" />
                             <span className='navlink-text'>Login</span>
-                    </NavLink>
+
+                        </NavLink>
+                        <div className='dropdown-login'>
+                            <div className='logincontent1'>
+                                <span>New customer?</span>
+                                <NavLink className='nav-signup' to='/signup'>SignUp</NavLink>
+                            </div>
+                            <div className='logincontent2'>
+                                <span>My Profile</span>
+                                <span>Orders</span>
+                            </div>
+                        </div>
+                    </div>
 
                     <NavLink className='navlink'>
                         <img className='navlink-img' src={header_cart} alt="" />
