@@ -1,17 +1,22 @@
 const express = require('express');
 const cors = require('cors');
-const connectMongoDb = require('./config/db');
-const router = require('./routes/productRouter');
+const {connectMongoDbProduct} = require('./config/db')
 
+// import routes
+const productRouter = require('./routes/productRouter');
+const userRouter = require('./routes/user');
 
+connectMongoDbProduct();
 
 const app = express();
 app.use(cors());
-connectMongoDb();
+app.use(express.json());
 
-app.use('/',router);
+// routes
+app.use('/',productRouter)
+app.use('/',userRouter)
 
 
 
 
-app.listen(3000,()=> console.log('server started at http://localhost:3000 '));
+app.listen(5000,()=> console.log('server started at http://localhost:5000 '));

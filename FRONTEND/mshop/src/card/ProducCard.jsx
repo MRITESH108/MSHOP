@@ -7,7 +7,7 @@ const ProducCard = () => {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/')
+    axios.get('http://localhost:5000/')
       .then(res => setProduct(res.data.slicedData));
   }, []);
 

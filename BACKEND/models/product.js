@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 
+const { connectMongoDbProduct } = require('../config/db')
+
+connectMongoDbProduct();
 
 const productSchema = new mongoose.Schema({
-    title : String,
-    category : String,
+    name : String,
+    price : Number,
     description : String,
-    price : String
+    category : String
 });
 
-const product = mongoose.model('user', productSchema);
+const Product = mongoose.model('product',productSchema,'mixed');
 
-
-module.exports = product;
+module.exports = Product;

@@ -1,13 +1,17 @@
 const mongoose = require('mongoose');
 
+const PRODUCTDB_URI = 'mongodb://localhost:27017/products';
 
-const MONGODB_URI = 'mongodb://localhost:27017/';
+const connectMongoDbProduct = async () => {
+   try {
+      const connection = await mongoose.connect(PRODUCTDB_URI);
+      console.log('MongoDB Connected with product');
+      return connection; 
+   } catch (err) {
+      console.error('Product DB Error:', err);
+   }
+};
 
-const connectMongoDb = async()=>{
-   await mongoose.connect(MONGODB_URI)
-   .then(()=> console.log('MongoDb Connected'))
-   .catch((err)=> console.error('Error: ', err));
-}
-
-
-module.exports = connectMongoDb;
+module.exports = {
+   connectMongoDbProduct
+};

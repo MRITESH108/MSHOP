@@ -1,16 +1,24 @@
 import React from 'react'
+import axios from 'axios'
 import '../styles/SignUp.css'
 
 const SignUp = () => {
-    const handleSubmit = (e) => {
+    
+    const handleSubmit = async(e) => {
         e.preventDefault();
         const formData = {
             name: e.target.name.value,
             email: e.target.email.value,
             password: e.target.password.value
-        };
-
-        console.log('Form Data:', JSON.stringify(formData, null, 2));
+        }
+        try{
+            const res = await axios.post('http://localhost:5000/signup',formData);
+            alert(res.data);
+            
+        }
+        catch(error){
+            console.log("something went wrong");
+        }
     }
 
     return (
