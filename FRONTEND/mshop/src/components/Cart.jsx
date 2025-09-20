@@ -10,7 +10,7 @@ const Cart = () => {
       withCredentials: true,
     })
     .then(res => {
-      setCart(res.data.fakeCart);
+      setCart(res.data);
     })
     .catch(err => {
       console.error(err);

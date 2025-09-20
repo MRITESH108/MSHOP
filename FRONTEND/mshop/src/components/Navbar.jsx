@@ -1,12 +1,28 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { Link, NavLink } from 'react-router'
 import '../styles/Navbar.css'
 import profile from '../assets/profile.svg'
 import header_cart from '../assets/header_cart.svg'
 import Storeicon from '../assets/Store.svg'
+import axios from 'axios'
+
 
 
 const Navbar = () => {
+    const handleLogout = async () => {
+    try {
+        await axios.post('http://localhost:5000/logout', {}, {
+            withCredentials: true
+        });
+
+        alert('Logout successful');
+        window.location.href = '/'; 
+
+    } catch (err) {
+        console.log('Logout error:', err);
+        alert('Logout failed');
+    }
+};
     return (
         <div className='nav-box'>
             <div className='navbar-container'>
@@ -33,6 +49,7 @@ const Navbar = () => {
                             <div className='logincontent2'>
                                 <span>My Profile</span>
                                 <span>Orders</span>
+                                <button onClick={handleLogout}>Logout</button>
                             </div>
                         </div>
                     </div>

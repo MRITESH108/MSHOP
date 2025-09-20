@@ -91,5 +91,16 @@ const handleGetCart = (req,res) => {
     res.json(fakeCart);
 };
 
+const handleLogOut = (req,res)=>{
+    res.clearCookie('token', {
+    httpOnly: true,
+    secure: false,
+    sameSite: 'lax'
+  });
 
-module.exports = { handleUserSignUp, handleloginuser, handleProtectRoute, handleGetCart }
+  return res.send('Logged out successfully');
+
+}
+
+
+module.exports = { handleUserSignUp, handleloginuser, handleProtectRoute, handleGetCart,handleLogOut}
