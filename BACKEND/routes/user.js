@@ -1,12 +1,14 @@
 const express = require('express');
-const {handleUserSignUp,handleloginuser} = require('../controllers/user');
+const {handleUserSignUp,handleloginuser, handleProtectRoute, handleGetCart} = require('../controllers/user');
 
 
 const userRouter = express.Router();
 
 
-userRouter.post('/login',handleloginuser)
+
 userRouter.post('/signup',handleUserSignUp);
+userRouter.post('/login',handleloginuser);
+userRouter.get('/cart',handleProtectRoute,handleGetCart);
 
 
 

@@ -28,23 +28,23 @@ const SignUp = () => {
                 <form onSubmit={handleSubmit} className='signup-form'>
 
                     <div className='transparent'>
-                        <label className='transparent' htmlFor="name">
+                        {/* <label className='transparent' htmlFor="name">
                             Full Name :
-                        </label>
+                        </label> */}
                         <input required type="text" name="name" id="name" placeholder='Enter Full Name ...' />
                     </div>
 
                     <div className='transparent'>
-                        <label htmlFor="email" className='transparent'>
+                        {/* <label htmlFor="email" className='transparent'>
                         E-mail :
-                    </label>
+                    </label> */}
                     <input required type="email" name="email" id="email" placeholder='Enter e-mail ...' />
                     </div>
 
                     <div className='transparent'>
-                        <label htmlFor="password" className='transparent required'>
+                        {/* <label htmlFor="password" className='transparent required'>
                         Password :
-                    </label>
+                    </label> */}
                     <input required type="password" name="password" id="password" placeholder='Enter password ...' />
                     </div>
 

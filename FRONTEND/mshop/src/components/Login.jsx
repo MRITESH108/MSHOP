@@ -11,7 +11,9 @@ const Login = () => {
             password: e.target.password.value
         }
         try{
-            const res = await axios.post('http://localhost:5000/login',formData);
+            const res = await axios.post('http://localhost:5000/login',formData,{
+                withCredentials:true,
+            });
             alert(res.data);
             
         }
@@ -26,16 +28,16 @@ const Login = () => {
                 <h1 className='transparent'>Login</h1>
                 <form onSubmit={handleSubmit} className='login-form' action="" method="get">
                     <div className='transparent'>
-                        <label htmlFor="email" className='transparent'>
+                        {/* <label htmlFor="email" className='transparent'>
                             E-mail :
-                        </label>
+                        </label> */}
                         <input required type="email" name="email" id="email" placeholder='Enter e-mail ...' />
                     </div>
 
                     <div className='transparent'>
-                        <label htmlFor="password" className='transparent required'>
+                        {/* <label htmlFor="password" className='transparent required'>
                             Password :
-                        </label>
+                        </label> */}
                         <input required type="password" name="password" id="password" placeholder='Enter password ...' />
                     </div>
                     <button className='login-btn' type="submit">Submit</button>

@@ -37,7 +37,7 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    <NavLink className='navlink'>
+                    <NavLink to='/cart' className='navlink'>
                         <img className='navlink-img' src={header_cart} alt="" />
                         <span className='navlink-text'>Cart</span>
                     </NavLink>
