@@ -1,12 +1,13 @@
 const express = require('express');
-const {handleGetAllProducts, handlePostProducts} = require('../controllers/product');
+const {handleGetAllProducts, handlePostProducts,handleProductDescription} = require('../controllers/product');
 
 
 const router = express.Router();
 
 
 
-router.get('/',handleGetAllProducts);
+router.get('/allproducts',handleGetAllProducts);
+router.get('/products/:id',handleProductDescription)
 router.post('/',handlePostProducts);
 
 

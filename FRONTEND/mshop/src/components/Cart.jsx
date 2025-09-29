@@ -1,46 +1,34 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import {clearCart} from '../features/cartSlice'
 
 const Cart = () => {
-  const [cart, setCart] = useState(null);
-  const [error, setError] = useState('');
+  const dispatch = useDispatch();
+  const {items, totalQuantity, totalPrice}= useSelector((state) => state.cart);
 
-  useEffect(() => {
-    axios.get('http://localhost:5000/cart', {
-      withCredentials: true,
-    })
-    .then(res => {
-      setCart(res.data);
-    })
-    .catch(err => {
-      console.error(err);
-      setError('You must be logged in to access the cart.');
-      
-      setTimeout(() => {
-        window.location.href = '/login';
-      }, 1500);
-    });
-  },[]);
-
+  const handleRemove = ()=>{
+    console.log(items)
+    dispatch(clearCart())
+  }
+  if(items.length === 0){
+    return (<p>Your cart is empty</p>)
+  }
   return (
     <div>
-      <h2>Your Cart</h2>
-
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-
-      {!cart && !error && <p>Loading cart...</p>}
-
-      {cart && (
-        <ul>
-          {cart.items.map((item, index) => (
-            <li key={index}>
-              {item.product} — Quantity: {item.quantity}
-            </li>
-          ))}
-        </ul>
-      )}
+      <button onClick={handleRemove}>Remove</button> <br />
+      <span>{totalPrice}</span>
+      <br />
+      <span>{totalQuantity}</span>
+      {items.map((item,index)=>(
+        <div key={index}>
+          <li>
+            <h1>{item.name}</h1>
+          </li>
+        </div>
+      ))}
     </div>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart
+

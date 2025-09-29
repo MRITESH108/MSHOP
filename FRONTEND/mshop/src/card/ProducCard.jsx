@@ -7,7 +7,7 @@ const ProducCard = () => {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/')
+    axios.get('http://localhost:5000/allproducts')
       .then(res => setProduct(res.data.slicedData));
   }, []);
 
@@ -18,7 +18,7 @@ const ProducCard = () => {
         {
           product.map((prod, index) => (
             <div style={{backgroundColor:'transparent'}} key={index}>
-              <NumberCard name={prod.name} price={prod.price} />
+              <NumberCard id={prod._id} name={prod.name} price={prod.price} />
             </div>
           ))
         }

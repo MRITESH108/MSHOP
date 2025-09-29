@@ -6,6 +6,7 @@ import Product from './components/Product'
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Cart from "./components/Cart";
+import ProdDesc from "./card/ProdDesc";
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,13 @@ const router = createBrowserRouter([
     element: <div className="app-homebox">
       <Navbar/>
       <Cart/>
+    </div>,
+  },
+  {
+     path: "/products/:id",
+    element: <div className="app-homebox">
+      <Navbar/>
+      <ProdDesc/>
     </div>,
   },
 ]);

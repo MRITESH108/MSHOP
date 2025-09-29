@@ -36,7 +36,7 @@ const handleloginuser = async (req, res) => {
 
         const isMatch = await bcrypt.compare(password, fetchedUser.password);
         if (!isMatch) {
-            return res.send('Invalid credentials!');
+            return res.send('Invalid password!');
         }
 
         const token = jwt.sign(

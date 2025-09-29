@@ -8,7 +8,7 @@ const userRouter = express.Router();
 
 userRouter.post('/signup',handleUserSignUp);
 userRouter.post('/login',handleloginuser);
-userRouter.get('/cart',handleProtectRoute,handleGetCart);
+// userRouter.get('/cart',handleProtectRoute,handleGetCart);
 userRouter.post('/logout',handleLogOut);
 
 

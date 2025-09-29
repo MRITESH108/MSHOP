@@ -13,9 +13,14 @@ const handleGetAllProducts = async(req,res)=>{
 const handlePostProducts = async(req,res)=>{
   
 };
+const handleProductDescription = async(req,res)=>{
+  const productbyId = await Product.findById(req.params.id);
+  res.json(productbyId);
+};
 
 
 module.exports = {
   handleGetAllProducts,
-  handlePostProducts
+  handlePostProducts,
+  handleProductDescription
 };
