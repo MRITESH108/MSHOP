@@ -1,0 +1,25 @@
+.transparent{
+    background: transparent;
+}
+
+.cartcard1-box{
+    background-color: rgb(255, 254, 253);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    width: 500px;
+}
+
+.cartcard1-box1{
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+}
+.cartcard1-quantitybtn{
+    display: flex;
+    background: transparent;
+    justify-content: space-between;
+    align-items: center;
+}

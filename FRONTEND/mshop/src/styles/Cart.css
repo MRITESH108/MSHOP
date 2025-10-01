@@ -1,0 +1,12 @@
+.cart-box{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    margin-left: 160px;
+    margin-right: 160px;
+}
+
+.cart-itembox{
+    display: flex;
+    gap: 20px;
+}

@@ -1,0 +1,11 @@
+.transparent{
+    background: transparent;
+}
+
+
+.cartcard2-box{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255,254,253);
+    /* border: 1px solid black; */
+}

@@ -10,29 +10,31 @@ import axios from 'axios'
 
 const Navbar = () => {
     const handleLogout = async () => {
-    try {
-        await axios.post('http://localhost:5000/logout', {}, {
-            withCredentials: true
-        });
+        try {
+            await axios.post('http://localhost:5000/logout', {}, {
+                withCredentials: true
+            });
 
-        alert('Logout successful');
-        window.location.href = '/'; 
+            alert('Logout successful');
+            window.location.href = '/';
 
-    } catch (err) {
-        console.log('Logout error:', err);
-        alert('Logout failed');
-    }
-};
+        } catch (err) {
+            console.log('Logout error:', err);
+            alert('Logout failed');
+        }
+    };
     return (
         <div className='nav-box'>
             <div className='navbar-container'>
-                <div className='navbar-searchimg'>
-                    <img src="/" alt="MSHOP" />
-                    <div className='nav-search'>
-                        &#128269;
-                        <input className='nav-searchbox' type="search" name="" id="nav-search" placeholder='Search For Products and More' />
+                <NavLink to='/' className='navlink navlink-login'>
+                    <div className='navbar-searchimg'>
+                        <img src="/" alt="MSHOP" />
+                        <div className='nav-search'>
+                            &#128269;
+                            <input className='nav-searchbox' type="search" name="" id="nav-search" placeholder='Search For Products and More' />
+                        </div>
                     </div>
-                </div>
+                </NavLink>
                 <div className='navlink-box'>
                     {/* LOGIN - SECTION */}
                     <div className='login-wrapper'>

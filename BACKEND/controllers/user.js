@@ -62,7 +62,7 @@ const handleProtectRoute = (req, res, next) => {
     const token = req.cookies.token;
 
     if (!token) {
-        return res.send('Token missing!');
+        return res.status(401).json({ error: 'Token missing' });
     }
 
     jwt.verify(token, 'RiteshPandey', function (err, decoded) {
@@ -78,17 +78,7 @@ const handleProtectRoute = (req, res, next) => {
 
 
 const handleGetCart = (req,res) => {
-    const { email } = req.user;
-
-    const fakeCart = {
-        user: email,
-        items: [
-            { product: 'Apple iPhone 15', quantity: 1 },
-            { product: 'MacBook Pro', quantity: 1 }
-        ]
-    };
-
-    res.json(fakeCart);
+    res.json("You can see your cart!");
 };
 
 const handleLogOut = (req,res)=>{
