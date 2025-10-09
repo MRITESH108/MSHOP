@@ -15,42 +15,33 @@ export const cartSlice = createSlice({
       const item = action.payload;
       const existingItem = state.items.find((i) => i.id === item.id);
       if (!existingItem) {
-        state.items.push({ ...item, quantity:1});
+        state.items.push({ ...item, quantity: 1 });
         state.totalQuantity += 1;
         state.totalPrice += item.price;
       }
     },
 
-    increaseQuantity(state,action){
+    increaseQuantity(state, action) {
       const item = action.payload;
-      const existingItem = state.items.find((i)=> i.id === item.id)
+      const existingItem = state.items.find((i) => i.id === item.id)
 
-      if(existingItem){
+      if (existingItem) {
         existingItem.quantity += 1;
-        state.totalQuantity +=1;
+        state.totalQuantity += 1;
         state.totalPrice += existingItem.price;
       }
 
-      console.log(state);
-      console.log(action);
-      console.log(action.payload);
-
     },
 
-    decreaseQuantity(state,action){
+    decreaseQuantity(state, action) {
       const item = action.payload;
-      const existingItem = state.items.find((i)=> i.id === item.id)
+      const existingItem = state.items.find((i) => i.id === item.id)
 
-      if(existingItem && item.quantity > 1){
+      if (existingItem && item.quantity > 1) {
         existingItem.quantity -= 1;
-        state.totalQuantity -=1;
+        state.totalQuantity -= 1;
         state.totalPrice -= existingItem.price;
       }
-
-      console.log(state);
-      console.log(action);
-      console.log(action.payload);
-
     },
 
     clearCart(state, action) {
@@ -60,8 +51,13 @@ export const cartSlice = createSlice({
     },
     removeItem(state, action) {
       const item = action.payload;
-      state.items = state.items.filter((i)=> i.id !== item.id);
-      console.log(state.items);
+      const existingItem = state.items.find((i) => i.id === item.id);
+
+      if (existingItem) {
+        state.totalQuantity -= existingItem.quantity;
+        state.totalPrice -= existingItem.price * existingItem.quantity;
+        state.items = state.items.filter((i) => i.id !== item.id);
+      }
     },
 
   },
@@ -69,6 +65,6 @@ export const cartSlice = createSlice({
 
 
 
-export const { addToCart,increaseQuantity, decreaseQuantity, clearCart, removeItem } = cartSlice.actions
+export const { addToCart, increaseQuantity, decreaseQuantity, clearCart, removeItem } = cartSlice.actions
 
 export default cartSlice.reducer

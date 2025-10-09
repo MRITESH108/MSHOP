@@ -14,8 +14,8 @@ const Login = () => {
             const res = await axios.post('http://localhost:5000/login',formData,{
                 withCredentials:true,
             });
-            alert(res.data);
-            
+            localStorage.setItem('username', res.data.name);
+            alert(res.data.message);
         }
         catch(error){
             console.log("something went wrong");
@@ -28,16 +28,10 @@ const Login = () => {
                 <h1 className='transparent'>Login</h1>
                 <form onSubmit={handleSubmit} className='login-form' action="" method="get">
                     <div className='transparent'>
-                        {/* <label htmlFor="email" className='transparent'>
-                            E-mail :
-                        </label> */}
                         <input required type="email" name="email" id="email" placeholder='Enter e-mail ...' />
                     </div>
 
-                    <div className='transparent'>
-                        {/* <label htmlFor="password" className='transparent required'>
-                            Password :
-                        </label> */}
+                    <div className='transparent'>  
                         <input required type="password" name="password" id="password" placeholder='Enter password ...' />
                     </div>
                     <button className='login-btn' type="submit">Submit</button>

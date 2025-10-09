@@ -6,6 +6,7 @@ const { connectMongoDbProduct } = require('./config/db')
 // import routes
 const productRouter = require('./routes/productRouter');
 const userRouter = require('./routes/user');
+const cartRouter = require('./routes/cart')
 
 connectMongoDbProduct();
 
@@ -21,8 +22,6 @@ app.use(express.json());
 // routes
 app.use('/', productRouter)
 app.use('/', userRouter)
-
-
-
+app.use('/',cartRouter)
 
 app.listen(5000, () => console.log('server started at http://localhost:5000 '));

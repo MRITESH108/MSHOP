@@ -2,8 +2,6 @@ const User = require('../models/user')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-
-
 const handleUserSignUp = async (req, res) => {
     const { name, email, password } = req.body;
 
@@ -12,13 +10,12 @@ const handleUserSignUp = async (req, res) => {
         if (checkUser) {
             return res.send('Email already exists');
         }
+        
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
         const newUser = new User({ name, email, password: hashedPassword });
         await newUser.save();
-
-        console.log(newUser);
         res.send('user got registered');
     }
     catch (err) {
@@ -49,9 +46,15 @@ const handleloginuser = async (req, res) => {
             secure: false,
             sameSite: 'lax', 
         });
-        console.log(req.cookies);
-        return res.send('got loginned!');
-    } catch (error) {
+
+        return res.status(200).json({
+            message: 'Login successful!',
+            name: fetchedUser.name
+        });
+
+    } 
+
+    catch (error) {
         console.error(error);
         return res.send('Something went wrong');
     }
@@ -91,6 +94,5 @@ const handleLogOut = (req,res)=>{
   return res.send('Logged out successfully');
 
 }
-
 
 module.exports = { handleUserSignUp, handleloginuser, handleProtectRoute, handleGetCart,handleLogOut}

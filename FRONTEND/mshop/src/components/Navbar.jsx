@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router'
 import '../styles/Navbar.css'
 import profile from '../assets/profile.svg'
@@ -9,12 +9,24 @@ import axios from 'axios'
 
 
 const Navbar = () => {
+
+    const [username, setUsername] = useState(null);
+
+    useEffect(() => {
+        const name = localStorage.getItem('username');
+        if (name) {
+            setUsername(name);
+        }
+    }, []);
+
+
     const handleLogout = async () => {
         try {
             await axios.post('http://localhost:5000/logout', {}, {
                 withCredentials: true
             });
-
+            localStorage.removeItem('username');
+            setUsername(null);
             alert('Logout successful');
             window.location.href = '/';
 
@@ -45,8 +57,14 @@ const Navbar = () => {
                         </NavLink>
                         <div className='dropdown-login'>
                             <div className='logincontent1'>
-                                <span>New customer?</span>
-                                <NavLink className='nav-signup' to='/signup'>SignUp</NavLink>
+                                {username ? (
+                                    <span>Hi, {username}</span>
+                                ) : (
+                                    <>
+                                        <span>New customer?</span>
+                                        <NavLink className='nav-signup' to='/signup'>SignUp</NavLink>
+                                    </>
+                                )}
                             </div>
                             <div className='logincontent2'>
                                 <span>My Profile</span>
