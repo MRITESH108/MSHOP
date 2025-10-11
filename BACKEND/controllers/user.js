@@ -72,9 +72,7 @@ const handleProtectRoute = (req, res, next) => {
         if (err) {
             return res.send('Token not verified');
         }
-
         req.user = decoded;
-        console.log('Verified');
         next();
     });
 };

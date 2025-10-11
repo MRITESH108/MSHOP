@@ -1,19 +1,18 @@
 import React from 'react'
 import '../styles/CartCard1.css'
-import { useDispatch } from 'react-redux'
-import { increaseQuantity, decreaseQuantity, removeItem } from '../features/cartSlice'
 
 const Cartcard1 = ({ item, index }) => {
-  const dispatch = useDispatch();
+  
+  const handleDecreaseItem = ()=>{
 
-  const handleIncreaseItem = () => {
-    dispatch(increaseQuantity(item))
   }
-  const handleDecreaseItem = () => {
-    dispatch(decreaseQuantity(item))
+
+  const handleIncreaseItem = ()=>{
+
   }
-  const handleRemoveItem = () => {
-    dispatch(removeItem(item))
+
+  const handleRemoveItem = ()=>{
+    
   }
 
   return (

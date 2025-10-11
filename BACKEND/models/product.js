@@ -7,6 +7,6 @@ const productSchema = new mongoose.Schema({
     category : String
 });
 
-const Product = mongoose.model('product',productSchema,'mixed');
+const Product = mongoose.model('Product',productSchema,'mixed');
 
 module.exports = Product;

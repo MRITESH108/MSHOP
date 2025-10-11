@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../features/cartSlice';
 import gyserimg from '../ad-images/fansgysers.webp'
+import { useDispatch } from 'react-redux';
+import { saveDBdata} from '../features/cartSlice'
 
 
 const ProdDesc = () => {
-    const dispatch = useDispatch();
     const { id } = useParams();
     const [product, setProduct] = useState(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         axios.get(`http://localhost:5000/products/${id}`)
@@ -18,8 +18,8 @@ const ProdDesc = () => {
     }, [id]);
 
     const handleAddItem = () => {
-        dispatch(addToCart({...product, id: product._id}));
-    }
+        dispatch(saveDBdata(product));
+    };
 
     if (!product) {
         return <div>Loading product...</div>;

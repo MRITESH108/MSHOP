@@ -1,34 +1,20 @@
 import React, { useEffect } from 'react'
 import '../styles/Cart.css'
-import axios from 'axios'
-import { useSelector } from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 
 import Cartcard1 from '../card/Cartcard1';
 import CartCard2 from '../card/CartCard2';
 import CartCard3 from '../card/CartCard3';
+import { fetchDBdata } from '../features/cartSlice';
 
 const Cart = () => {
+    const {items,totalPrice,totalQuantity} = useSelector(state => state.cart)
+    const dispatch = useDispatch();
+    useEffect(()=>{
+      dispatch(fetchDBdata());
+    },[dispatch])
 
-  useEffect(() => {
-    axios.get('http://localhost:5000/cart', {
-      withCredentials: true,
-    })
-    .then((res) => {
-      console.log('Cart data:', res.data);
-    })
-    .catch((err) => {
-      console.error('Error fetching cart:', err);
-      setTimeout(() => {
-        window.location.href = '/login';
-      }, 1500);
-    });
-    
-  },[]);
-
-  const { items, totalQuantity, totalPrice } = useSelector((state) => state.cart);
-
-
-  if (items.length === 0) {
+  if ( !items ) {
     return (<p>Your cart is empty</p>)
   }
 

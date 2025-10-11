@@ -38,15 +38,17 @@ const Navbar = () => {
     return (
         <div className='nav-box'>
             <div className='navbar-container'>
-                <NavLink to='/' className='navlink navlink-login'>
+                <div className='navlink navlink-login'>
                     <div className='navbar-searchimg'>
+                        <NavLink to='/' style={{color: 'inherit', textDecoration: 'none', background:'transparent'}}>
                         <img src="/" alt="MSHOP" />
+                        </NavLink>
                         <div className='nav-search'>
                             &#128269;
                             <input className='nav-searchbox' type="search" name="" id="nav-search" placeholder='Search For Products and More' />
                         </div>
                     </div>
-                </NavLink>
+                </div>
                 <div className='navlink-box'>
                     {/* LOGIN - SECTION */}
                     <div className='login-wrapper'>
