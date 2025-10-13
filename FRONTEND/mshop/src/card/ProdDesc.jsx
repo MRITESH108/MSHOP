@@ -18,7 +18,7 @@ const ProdDesc = () => {
     }, [id]);
 
     const handleAddItem = () => {
-        dispatch(saveDBdata(product));
+        dispatch(saveDBdata({...product,quantity:1,value:0}));
     };
 
     if (!product) {

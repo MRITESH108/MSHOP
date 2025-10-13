@@ -1,19 +1,41 @@
 import React from 'react'
 import '../styles/CartCard1.css'
+import { useDispatch } from 'react-redux'
+import { saveDBdata } from '../features/cartSlice';
 
 const Cartcard1 = ({ item, index }) => {
-  
-  const handleDecreaseItem = ()=>{
+  const dispatch = useDispatch();
 
-  }
+  const handleIncreaseItem = () => {
+    dispatch(saveDBdata({
+      productId: item.productId, // Not item._id
+      name: item.name,
+      price: item.price,
+      quantity: item.quantity,
+      value: 1
+    }));
+  };
 
-  const handleIncreaseItem = ()=>{
+  const handleDecreaseItem = () => {
+    dispatch(saveDBdata({
+      productId: item.productId,
+      name: item.name,
+      price: item.price,
+      quantity: item.quantity,
+      value: -1
+    }));
+  };
 
-  }
+  const handleRemoveItem = () => {
+    dispatch(saveDBdata({
+      productId: item.productId,
+      name: item.name,
+      price: item.price,
+      quantity: item.quantity,
+      value: -item.quantity
+    }));
+  };
 
-  const handleRemoveItem = ()=>{
-    
-  }
 
   return (
     <div>
@@ -23,10 +45,10 @@ const Cartcard1 = ({ item, index }) => {
           <h3 className='transparent'>Price : {item.price}</h3>
           <div className='cartcard1-quantitybtn'>
             <button className='transparent' onClick={handleDecreaseItem}>-</button>
-          <span className='transparent'>{item.quantity}</span>
-          <button className='transparent' onClick={handleIncreaseItem}>+</button>
+            <span className='transparent'>{item.quantity}</span>
+            <button className='transparent' onClick={handleIncreaseItem}>+</button>
           </div>
-          
+
           <button onClick={handleRemoveItem}>Remove</button>
         </li>
       </div>

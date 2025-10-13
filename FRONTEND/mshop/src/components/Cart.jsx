@@ -14,7 +14,7 @@ const Cart = () => {
       dispatch(fetchDBdata());
     },[dispatch])
 
-  if ( !items ) {
+  if ( !items || items.length == 0) {
     return (<p>Your cart is empty</p>)
   }
 
