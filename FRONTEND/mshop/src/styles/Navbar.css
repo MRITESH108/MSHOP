@@ -62,6 +62,12 @@
 .navlink-img {
     background-color: transparent;
 }
+
+.cartcount{
+    position: absolute;
+    top: 5px;
+    margin: 8px;
+}
 .navlink-text{
     background-color: transparent;
 }
