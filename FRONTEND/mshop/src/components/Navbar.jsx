@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router'
+import { NavLink } from 'react-router'
 import '../styles/Navbar.css'
 import profile from '../assets/profile.svg'
 import header_cart from '../assets/header_cart.svg'
@@ -8,7 +8,7 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 
 const Navbar = () => {
-    const {items} = useSelector((state) => state.cart)
+    const { items } = useSelector(state => state.cart)
     const [username, setUsername] = useState(null);
 
     useEffect(() => {
@@ -39,8 +39,8 @@ const Navbar = () => {
                 <div className='navlink navlink-login'>
                     <div className='navbar-searchimg'>
                         {/* PROFILE IMAGE OR LOGO SECTION  */}
-                        <NavLink to='/' style={{color: 'inherit', textDecoration: 'none', background:'transparent'}}>
-                        <img src="/" alt="MSHOP" />
+                        <NavLink to='/' style={{ color: 'inherit', textDecoration: 'none', background: 'transparent' }}>
+                            <img src="/" alt="MSHOP" />
                         </NavLink>
                         {/* SEARCH BOX SECTION  */}
                         <div className='nav-search'>
@@ -75,13 +75,13 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-                                {/* CART SECTION */}
+                    {/* CART SECTION */}
                     <NavLink to='/cart' className='navlink'>
                         <img className='navlink-img' src={header_cart} alt="" />
                         <span className='cartcount'>{items.length}</span>
                         <span className='navlink-text'>Cart</span>
                     </NavLink>
-                                {/* BECOME SELLER SECTION  */}
+                    {/* BECOME SELLER SECTION  */}
                     <NavLink className='navlink'>
                         <img className='navlink-img' src={Storeicon} alt="" />
                         <span className='navlink-text'>Become a seller</span>

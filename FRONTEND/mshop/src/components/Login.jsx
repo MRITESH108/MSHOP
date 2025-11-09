@@ -26,7 +26,7 @@ const Login = () => {
         <div className='login-container'>
             <div className='login-box'>
                 <h1 className='transparent'>Login</h1>
-                <form onSubmit={handleSubmit} className='login-form' action="" method="get">
+                <form onSubmit={handleSubmit} className='login-form'>
                     <div className='transparent'>
                         <input required type="email" name="email" id="email" placeholder='Enter e-mail ...' />
                     </div>

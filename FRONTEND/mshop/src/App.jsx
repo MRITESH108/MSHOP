@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     </div>,
   },
   {
-     path: "/login",
+    path: "/login",
     element: <div className="app-homebox">
       <Navbar/>
       <Login/>

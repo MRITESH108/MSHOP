@@ -1,9 +1,11 @@
-import React from 'react'
+import {Link} from 'react-router'
 import { useDispatch } from 'react-redux'
 import { clearCart } from '../features/cartSlice'
 
 const CartCard3 = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  // CLEAR YOUR CART
   const handleRemove = ()=>{
    dispatch(clearCart());
   }
@@ -12,7 +14,7 @@ const CartCard3 = () => {
     <div>
       <button onClick={handleRemove}>Clear Cart</button>
       ......
-      <button onClick={handleRemove}>Proceed to Pay</button>
+      <Link to='/payment'><button >Place Order</button></Link>
     </div>
   )
 }

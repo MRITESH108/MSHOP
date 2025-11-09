@@ -17,6 +17,7 @@ const Cartcard1 = ({ item, index }) => {
   };
 
   const handleDecreaseItem = () => {
+    if(item.quantity > 1)
     dispatch(saveDBdata({
       productId: item.productId,
       name: item.name,

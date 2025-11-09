@@ -28,9 +28,3 @@ const ProducCard = () => {
 }
 
 export default ProducCard
-
-/* 
-{
-{},[]
-}
-*/

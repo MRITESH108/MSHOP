@@ -36,7 +36,6 @@ export const cartSlice = createSlice({
         state.totalQuantity += 1;
       }
     },
-
   },
   extraReducers: (builder) => {
     builder
@@ -60,7 +59,6 @@ export const cartSlice = createSlice({
         state.totalQuantity = 0;
       })
   }
-
 })
 
 export const { addToCart } = cartSlice.actions
