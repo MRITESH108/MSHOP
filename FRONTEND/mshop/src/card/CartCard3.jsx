@@ -14,7 +14,7 @@ const CartCard3 = () => {
     <div>
       <button onClick={handleRemove}>Clear Cart</button>
       ......
-      <Link to='/payment'><button >Place Order</button></Link>
+      <Link to='/checkout'><button >Place Order</button></Link>
     </div>
   )
 }

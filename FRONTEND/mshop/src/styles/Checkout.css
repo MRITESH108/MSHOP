@@ -1,0 +1,8 @@
+.checkout-container {
+    display: flex;
+    /* background-color: red; */
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    padding: 2px;
+}

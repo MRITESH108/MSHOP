@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Cart from "./components/Cart";
 import ProdDesc from "./card/ProdDesc";
+import Checkout from "./components/Checkout";
 
 
 const router = createBrowserRouter([
@@ -45,6 +46,13 @@ const router = createBrowserRouter([
       <ProdDesc/>
     </div>,
   },
+  {
+    path : "/checkout",
+    element : <div className="app-homebox">
+      <Navbar/>
+      <Checkout/>
+    </div>
+  }
 ]);
 
 

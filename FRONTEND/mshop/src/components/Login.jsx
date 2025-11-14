@@ -16,6 +16,8 @@ const Login = () => {
             });
             localStorage.setItem('username', res.data.name);
             alert(res.data.message);
+            window.location.href='/';
+            
         }
         catch(error){
             console.log("something went wrong");

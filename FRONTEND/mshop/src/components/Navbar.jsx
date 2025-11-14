@@ -16,7 +16,7 @@ const Navbar = () => {
         if (name) {
             setUsername(name);
         }
-    }, [username]);
+    }, [localStorage.username, items]);
 
     const handleLogout = async () => {
         try {
@@ -78,7 +78,7 @@ const Navbar = () => {
                     {/* CART SECTION */}
                     <NavLink to='/cart' className='navlink'>
                         <img className='navlink-img' src={header_cart} alt="" />
-                        <span className='cartcount'>{items.length}</span>
+                        <span className='cartcount'>{!items? 0 : items.length}</span>
                         <span className='navlink-text'>Cart</span>
                     </NavLink>
                     {/* BECOME SELLER SECTION  */}
